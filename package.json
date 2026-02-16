@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@adora-so/adora-js": "^0.1.5",
+    "vite": "^7.3.1"
+  }
+}
