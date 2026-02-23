@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style 2 — Minimal & Clean</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fafafa;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .label {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #111;
+      padding: 6px 18px;
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+    .card {
+      max-width: 540px;
+      width: 100%;
+    }
+    .progress-bar {
+      height: 2px;
+      background: #e5e7eb;
+      border-radius: 99px;
+      margin-bottom: 48px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 40%;
+      background: #111;
+      border-radius: 99px;
+    }
+    .meta {
+      font-size: 12px;
+      color: #9ca3af;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .question {
+      font-size: 28px;
+      font-weight: 300;
+      color: #111;
+      margin-bottom: 40px;
+      line-height: 1.4;
+      letter-spacing: -0.5px;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .option {
+      padding: 18px 0;
+      border-bottom: 1px solid #e5e7eb;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 400;
+      color: #374151;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .option:first-child { border-top: 1px solid #e5e7eb; }
+    .option:hover { color: #111; }
+    .option.selected { color: #111; font-weight: 600; }
+    .option .arrow { color: #d1d5db; font-size: 14px; }
+    .option.selected .arrow { color: #111; }
+    .footer {
+      margin-top: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .counter { font-size: 13px; color: #9ca3af; }
+    .btn {
+      background: #111;
+      color: #fff;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+    }
+    .btn:hover { background: #374151; }
+  </style>
+</head>
+<body>
+  <div class="label">Style 2 — Minimal & Clean</div>
+  <div class="card">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="meta">Question 2 of 5</div>
+    <div class="question">Your perfect Saturday morning looks like...</div>
+    <div class="options">
+      <div class="option selected">
+        A sunrise hike with a packed thermos
+        <span class="arrow">✓</span>
+      </div>
+      <div class="option">
+        Slow mornings, couch, nowhere to be
+        <span class="arrow">→</span>
+      </div>
+      <div class="option">
+        A quiet corner at your favorite café
+        <span class="arrow">→</span>
+      </div>
+      <div class="option">
+        Yoga, journaling, total stillness
+        <span class="arrow">→</span>
+      </div>
+    </div>
+    <div class="footer">
+      <span class="counter">2 / 5</span>
+      <button class="btn">Continue</button>
+    </div>
+  </div>
+</body>
+</html>

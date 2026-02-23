@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style 1 — Playful & Colorful</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(135deg, #f9a8d4, #c4b5fd, #93c5fd);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .label {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      padding: 6px 18px;
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #7c3aed;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      letter-spacing: 0.5px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 28px;
+      padding: 40px 36px;
+      max-width: 520px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+    .progress {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 28px;
+    }
+    .dot {
+      height: 8px;
+      border-radius: 99px;
+      flex: 1;
+      background: #e9d5ff;
+    }
+    .dot.active { background: #a855f7; }
+    .question {
+      font-size: 22px;
+      font-weight: 900;
+      color: #1e1b4b;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: #9ca3af;
+      margin-bottom: 28px;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .option {
+      padding: 16px 20px;
+      border-radius: 16px;
+      border: 2.5px solid #e9d5ff;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 700;
+      color: #4c1d95;
+      transition: all 0.15s;
+      background: #faf5ff;
+    }
+    .option:hover { background: #ede9fe; border-color: #a855f7; }
+    .option.selected { background: #a855f7; border-color: #a855f7; color: #fff; }
+    .emoji { margin-right: 10px; font-size: 18px; }
+    .footer {
+      margin-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .counter { font-size: 13px; color: #9ca3af; font-weight: 700; }
+    .btn {
+      background: linear-gradient(135deg, #a855f7, #6366f1);
+      color: #fff;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 99px;
+      font-size: 15px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(168,85,247,0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="label">Style 1 — Playful & Colorful</div>
+  <div class="card">
+    <div class="progress">
+      <div class="dot active"></div>
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="question">Your perfect Saturday morning looks like...</div>
+    <div class="subtitle">Question 2 of 5 · Be honest!</div>
+    <div class="options">
+      <div class="option selected"><span class="emoji">🏔️</span> A sunrise hike with a packed thermos</div>
+      <div class="option"><span class="emoji">🛋️</span> Slow mornings, couch, nowhere to be</div>
+      <div class="option"><span class="emoji">☕</span> A quiet corner at your favorite café</div>
+      <div class="option"><span class="emoji">🧘</span> Yoga, journaling, total stillness</div>
+    </div>
+    <div class="footer">
+      <span class="counter">2 / 5</span>
+      <button class="btn">Next →</button>
+    </div>
+  </div>
+</body>
+</html>

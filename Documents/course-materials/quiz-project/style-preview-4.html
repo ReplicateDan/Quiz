@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style 4 — Warm & Cozy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Source+Sans+3:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: linear-gradient(160deg, #fef3c7 0%, #fde8d0 50%, #f9d9c0 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .label {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #92400e;
+      padding: 6px 18px;
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #fef3c7;
+      letter-spacing: 0.5px;
+    }
+    .card {
+      background: #fffbf5;
+      border-radius: 20px;
+      padding: 44px 40px;
+      max-width: 520px;
+      width: 100%;
+      box-shadow: 0 8px 40px rgba(120, 53, 15, 0.12);
+      border: 1px solid #fde68a;
+    }
+    .coffee-icon {
+      font-size: 28px;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .progress {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .dot {
+      height: 6px;
+      border-radius: 99px;
+      flex: 1;
+      background: #fde68a;
+    }
+    .dot.active { background: #d97706; }
+    .question {
+      font-family: 'Lora', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: #78350f;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: #b45309;
+      margin-bottom: 28px;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .option {
+      padding: 16px 20px;
+      border-radius: 12px;
+      border: 1.5px solid #fde68a;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 500;
+      color: #78350f;
+      transition: all 0.15s;
+      background: #fffbf5;
+    }
+    .option:hover { background: #fef3c7; border-color: #f59e0b; }
+    .option.selected { background: #d97706; border-color: #d97706; color: #fff; }
+    .footer {
+      margin-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .counter { font-size: 13px; color: #b45309; }
+    .btn {
+      background: #92400e;
+      color: #fef3c7;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 99px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .btn:hover { background: #78350f; }
+  </style>
+</head>
+<body>
+  <div class="label">Style 4 — Warm & Cozy</div>
+  <div class="card">
+    <span class="coffee-icon">☕</span>
+    <div class="progress">
+      <div class="dot active"></div>
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="question">Your perfect Saturday morning looks like...</div>
+    <div class="subtitle">Question 2 of 5</div>
+    <div class="options">
+      <div class="option selected">A sunrise hike with a packed thermos</div>
+      <div class="option">Slow mornings, couch, nowhere to be</div>
+      <div class="option">A quiet corner at your favorite café</div>
+      <div class="option">Yoga, journaling, total stillness</div>
+    </div>
+    <div class="footer">
+      <span class="counter">2 / 5</span>
+      <button class="btn">Next →</button>
+    </div>
+  </div>
+</body>
+</html>

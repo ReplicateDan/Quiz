@@ -5,3 +5,7 @@ node_modules/
 !index.html
 !package.json
 !package-lock.json
+!Documents/
+!Documents/course-materials/
+!Documents/course-materials/quiz-project/
+!Documents/course-materials/quiz-project/**

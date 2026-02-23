@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style 3 — Bold & Dramatic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: #0a0a0a;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .label {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #f97316;
+      padding: 6px 18px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .card {
+      max-width: 560px;
+      width: 100%;
+    }
+    .progress {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 40px;
+    }
+    .seg {
+      height: 3px;
+      flex: 1;
+      background: #1f1f1f;
+    }
+    .seg.done { background: #f97316; }
+    .seg.active { background: #f97316; opacity: 0.5; }
+    .meta {
+      font-size: 11px;
+      color: #f97316;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .question {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 42px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 40px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .option {
+      padding: 18px 24px;
+      border: 1px solid #1f1f1f;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 500;
+      color: #9ca3af;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: #111;
+    }
+    .option:hover { border-color: #f97316; color: #fff; background: #1a1a1a; }
+    .option.selected { border-color: #f97316; color: #fff; background: #1a0f08; }
+    .num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #f97316;
+      letter-spacing: 1px;
+      min-width: 20px;
+    }
+    .footer {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .counter { font-size: 11px; color: #4b5563; letter-spacing: 2px; text-transform: uppercase; }
+    .btn {
+      background: #f97316;
+      color: #fff;
+      border: none;
+      padding: 16px 36px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: 'Barlow Condensed', sans-serif;
+    }
+    .btn:hover { background: #ea6a08; }
+  </style>
+</head>
+<body>
+  <div class="label">Style 3 — Bold & Dramatic</div>
+  <div class="card">
+    <div class="progress">
+      <div class="seg done"></div>
+      <div class="seg active"></div>
+      <div class="seg"></div>
+      <div class="seg"></div>
+      <div class="seg"></div>
+    </div>
+    <div class="meta">Question 02 / 05</div>
+    <div class="question">Your perfect Saturday morning looks like...</div>
+    <div class="options">
+      <div class="option selected">
+        <span class="num">01</span>
+        A sunrise hike with a packed thermos
+      </div>
+      <div class="option">
+        <span class="num">02</span>
+        Slow mornings, couch, nowhere to be
+      </div>
+      <div class="option">
+        <span class="num">03</span>
+        A quiet corner at your favorite café
+      </div>
+      <div class="option">
+        <span class="num">04</span>
+        Yoga, journaling, total stillness
+      </div>
+    </div>
+    <div class="footer">
+      <span class="counter">2 of 5</span>
+      <button class="btn">Next →</button>
+    </div>
+  </div>
+</body>
+</html>
