@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basecamp Rewards Turnaround — Pitch Deck</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #fafafa;
+      --white: #ffffff;
+      --ink: #111111;
+      --ink2: #3f3f46;
+      --mid: #71717a;
+      --subtle: #a1a1aa;
+      --faint: #e4e4e7;
+      --faintest: #f4f4f5;
+      --red: #dc2626;
+      --green: #16a34a;
+      --accent-bg: #fef9f0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--faint);
+      border-radius: 99px;
+      padding: 8px 16px;
+      z-index: 100;
+    }
+    .nav-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--faint);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      text-decoration: none;
+      display: block;
+    }
+    .nav-dot:hover { background: var(--mid); transform: scale(1.3); }
+    .nav-dot.active { background: var(--ink); }
+
+    /* ── SLIDES ── */
+    .slide {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 100px 48px 80px;
+      scroll-margin-top: 0;
+      position: relative;
+      border-bottom: 1px solid var(--faint);
+    }
+    .slide-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .slide-num {
+      position: absolute;
+      bottom: 28px;
+      right: 40px;
+      font-size: 11px;
+      color: var(--subtle);
+      letter-spacing: 1px;
+    }
+
+    /* ── TYPE ── */
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--subtle);
+      margin-bottom: 20px;
+    }
+    .headline {
+      font-size: 52px;
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+    .headline strong { font-weight: 600; }
+    .subhead {
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--mid);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .body-text {
+      font-size: 16px;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+    .rule { height: 1px; background: var(--faint); margin: 32px 0; }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--faint);
+      border-radius: 12px;
+      padding: 28px;
+    }
+    .card-grid {
+      display: grid;
+      gap: 16px;
+    }
+    .card-grid-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .card-grid-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+    /* ── STAT CARD ── */
+    .stat-card {
+      background: var(--white);
+      border: 1px solid var(--faint);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .stat-card .stat-num {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-card .stat-num.red { color: var(--red); }
+    .stat-card .stat-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink2);
+      margin-bottom: 4px;
+    }
+    .stat-card .stat-prev {
+      font-size: 12px;
+      color: var(--subtle);
+    }
+
+    /* ── DARK CALLOUT ── */
+    .callout-dark {
+      background: var(--ink);
+      color: var(--white);
+      border-radius: 12px;
+      padding: 32px 36px;
+    }
+    .callout-dark p { font-size: 17px; line-height: 1.6; margin-bottom: 12px; }
+    .callout-dark p:last-child { margin-bottom: 0; }
+    .callout-dark strong { font-weight: 600; }
+    .callout-dark .mid { color: rgba(255,255,255,0.55); }
+
+    /* ── ACCENT CALLOUT ── */
+    .callout-accent {
+      background: var(--accent-bg);
+      border: 2px solid var(--ink);
+      border-radius: 12px;
+      padding: 32px 36px;
+      text-align: center;
+    }
+
+    /* ── TABLE ── */
+    .pitch-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .pitch-table th {
+      text-align: left;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--subtle);
+      padding: 0 16px 12px 0;
+      border-bottom: 1px solid var(--faint);
+    }
+    .pitch-table td {
+      padding: 14px 16px 14px 0;
+      border-bottom: 1px solid var(--faintest);
+      color: var(--ink2);
+      vertical-align: middle;
+    }
+    .pitch-table tr:last-child td { border-bottom: none; }
+    .verdict-no { color: var(--red); font-weight: 500; font-size: 12px; }
+    .verdict-ts { color: var(--subtle); font-size: 12px; }
+
+    /* ── FROM/TO ── */
+    .from-to { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .from-col {
+      background: var(--faintest);
+      border-radius: 12px;
+      padding: 36px;
+    }
+    .from-col .ft-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--subtle);
+      margin-bottom: 20px;
+    }
+    .from-col .ft-text {
+      font-size: 22px;
+      font-weight: 300;
+      line-height: 1.4;
+      color: var(--mid);
+      letter-spacing: -0.5px;
+    }
+    .to-col {
+      background: var(--white);
+      border: 2px solid var(--ink);
+      border-radius: 12px;
+      padding: 36px;
+    }
+    .to-col .ft-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .to-col .ft-text {
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+    }
+    .source-list { margin-top: 24px; display: flex; flex-direction: column; gap: 8px; }
+    .source-item {
+      font-size: 13px;
+      color: var(--mid);
+      display: flex;
+      gap: 10px;
+    }
+    .source-item::before { content: '→'; color: var(--subtle); flex-shrink: 0; }
+
+    /* ── PERSONALITY PILL ── */
+    .pill-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0; }
+    .pill {
+      background: var(--white);
+      border: 1px solid var(--faint);
+      border-radius: 99px;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink2);
+      white-space: nowrap;
+    }
+
+    /* ── BROWSER FRAME ── */
+    .browser-frame {
+      background: var(--white);
+      border: 1px solid var(--faint);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
+    .browser-bar {
+      background: #f0f0f0;
+      border-bottom: 1px solid var(--faint);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .browser-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .bd-red { background: #ff5f57; }
+    .bd-yellow { background: #ffbd2e; }
+    .bd-green { background: #28c840; }
+    .browser-url {
+      margin-left: 12px;
+      font-size: 11px;
+      color: var(--subtle);
+      background: var(--white);
+      border: 1px solid var(--faint);
+      border-radius: 4px;
+      padding: 3px 12px;
+      flex: 1;
+      max-width: 280px;
+    }
+    .browser-body { padding: 32px; background: #fafafa; }
+
+    /* ── QUIZ MOCKUP ── */
+    .qm-eyebrow { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--subtle); margin-bottom: 16px; font-weight: 500; }
+    .qm-headline { font-size: 26px; font-weight: 300; color: var(--ink); margin-bottom: 10px; line-height: 1.2; letter-spacing: -0.5px; }
+    .qm-body { font-size: 13px; color: var(--mid); margin-bottom: 24px; line-height: 1.5; }
+    .qm-btn { background: var(--ink); color: var(--white); border: none; padding: 10px 24px; border-radius: 4px; font-size: 12px; font-weight: 500; letter-spacing: 0.5px; cursor: default; }
+
+    /* ── DEMO CARDS ── */
+    .demo-card {
+      background: var(--white);
+      border: 1px solid var(--faint);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .demo-card img { width: 100%; height: 140px; object-fit: cover; display: block; }
+    .demo-card-body { padding: 20px; }
+    .demo-card-name { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+    .demo-card-coffee { font-size: 13px; color: var(--mid); margin-bottom: 4px; }
+    .demo-card-tag { font-size: 12px; color: var(--subtle); font-style: italic; }
+
+    /* ── URL BLOCK ── */
+    .url-block {
+      background: var(--ink);
+      color: var(--white);
+      border-radius: 12px;
+      padding: 28px 36px;
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+      text-align: center;
+      margin: 32px 0;
+    }
+    .url-block a { color: var(--white); text-decoration: none; }
+    .url-block a:hover { text-decoration: underline; }
+
+    /* ── ROADMAP ── */
+    .roadmap { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
+    .roadmap-phase {
+      padding: 0 32px 0 0;
+      border-right: 1px solid var(--faint);
+    }
+    .roadmap-phase:last-child { border-right: none; padding-right: 0; padding-left: 32px; }
+    .roadmap-phase:not(:first-child):not(:last-child) { padding: 0 32px; }
+    .phase-bar { height: 3px; background: var(--ink); border-radius: 99px; margin-bottom: 20px; }
+    .phase-label { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--subtle); margin-bottom: 6px; }
+    .phase-title { font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+    .phase-weeks { font-size: 12px; color: var(--subtle); margin-bottom: 20px; }
+    .phase-items { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .phase-items li { font-size: 13px; color: var(--mid); line-height: 1.5; padding-left: 12px; position: relative; }
+    .phase-items li::before { content: '·'; position: absolute; left: 0; color: var(--subtle); }
+    .phase-owner { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--faintest); font-size: 11px; color: var(--subtle); }
+    .phase-owner strong { color: var(--mid); font-weight: 500; }
+
+    /* ── METRIC CARDS ── */
+    .metric-card {
+      background: var(--white);
+      border: 1px solid var(--faint);
+      border-radius: 12px;
+      padding: 24px;
+      position: relative;
+    }
+    .metric-name { font-size: 13px; font-weight: 500; color: var(--ink2); margin-bottom: 12px; }
+    .metric-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+    .metric-now { font-size: 12px; color: var(--red); }
+    .metric-now-val { font-size: 20px; font-weight: 700; color: var(--red); }
+    .metric-target { font-size: 12px; color: var(--green); }
+    .metric-target-val { font-size: 20px; font-weight: 700; color: var(--green); }
+    .metric-by { font-size: 11px; color: var(--subtle); margin-top: 6px; font-style: italic; }
+
+    /* ── ASK CARDS ── */
+    .ask-card {
+      background: var(--white);
+      border: 1px solid var(--faint);
+      border-radius: 12px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ask-card-num {
+      position: absolute;
+      top: -8px;
+      right: 16px;
+      font-size: 80px;
+      font-weight: 700;
+      color: var(--faintest);
+      line-height: 1;
+      user-select: none;
+    }
+    .ask-card-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 12px; position: relative; }
+    .ask-card-body { font-size: 13px; color: var(--mid); line-height: 1.6; position: relative; }
+
+    /* ── SLIDE-SPECIFIC ── */
+
+    /* S1 Cover */
+    #s1 { background: var(--white); }
+    #s1 .presenter { font-size: 14px; color: var(--subtle); margin-top: 20px; }
+    #s1 .wordmark { font-size: 13px; font-weight: 600; letter-spacing: 1px; color: var(--ink); }
+
+    /* S2 Headline number */
+    #s2 .big-num {
+      font-size: 120px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--red);
+      letter-spacing: -4px;
+      margin: 8px 0 16px;
+    }
+
+    /* S4 Pull quote */
+    .pull-quote-wrap { position: relative; padding: 40px 0; margin: 16px 0; }
+    .pull-quote-bg {
+      position: absolute;
+      top: -10px; left: -24px;
+      font-size: 180px;
+      font-weight: 700;
+      color: #f0f0f0;
+      line-height: 1;
+      user-select: none;
+      z-index: 0;
+    }
+    .pull-quote {
+      position: relative;
+      z-index: 1;
+      font-size: 56px;
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -2px;
+      color: var(--ink);
+    }
+    .pull-attr {
+      font-size: 13px;
+      color: var(--subtle);
+      font-style: italic;
+      margin-top: 16px;
+    }
+
+    /* S7 theme cards */
+    .theme-card {
+      background: var(--faintest);
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .theme-card-title { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+    .theme-card-quote { font-size: 13px; color: var(--mid); font-style: italic; line-height: 1.5; }
+
+    /* S9 closing */
+    .closing-lines { text-align: center; margin-top: 48px; }
+    .closing-big { font-size: 28px; font-weight: 300; color: var(--ink); letter-spacing: -0.5px; line-height: 1.4; margin-bottom: 32px; }
+    .thank-you { font-size: 20px; font-weight: 300; color: var(--mid); margin-bottom: 8px; }
+    .presenter-line { font-size: 13px; color: var(--subtle); }
+
+    /* NPS bars */
+    .nps-bar-wrap { margin-top: 12px; }
+    .nps-bar-label { font-size: 12px; color: var(--mid); margin-bottom: 4px; display: flex; justify-content: space-between; }
+    .nps-bar-track { height: 8px; background: var(--faintest); border-radius: 99px; overflow: hidden; }
+    .nps-bar-fill { height: 100%; border-radius: 99px; }
+
+    /* ── PRINT ── */
+    @media print {
+      .nav { display: none; }
+      .slide { page-break-after: always; min-height: 100vh; padding: 60px 48px; }
+      .slide:last-child { page-break-after: auto; }
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    @media (max-width: 700px) {
+      .headline { font-size: 36px; }
+      .card-grid-3, .card-grid-4 { grid-template-columns: 1fr 1fr; }
+      .from-to, .roadmap { grid-template-columns: 1fr; }
+      .roadmap-phase { border-right: none; padding: 0 0 24px !important; border-bottom: 1px solid var(--faint); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav" id="nav">
+  <a href="#s1"  class="nav-dot active" title="Cover"></a>
+  <a href="#s2"  class="nav-dot" title="The Number"></a>
+  <a href="#s3"  class="nav-dot" title="Full Metrics"></a>
+  <a href="#s4"  class="nav-dot" title="Fine But Forgettable"></a>
+  <a href="#s5"  class="nav-dot" title="10 Campaigns"></a>
+  <a href="#s6"  class="nav-dot" title="Competitive Gap"></a>
+  <a href="#s7"  class="nav-dot" title="The Shift"></a>
+  <a href="#s8"  class="nav-dot" title="The Solution"></a>
+  <a href="#s9"  class="nav-dot" title="Live Demo"></a>
+  <a href="#s10" class="nav-dot" title="Roadmap"></a>
+  <a href="#s11" class="nav-dot" title="Metrics"></a>
+  <a href="#s12" class="nav-dot" title="The Ask"></a>
+</nav>
+
+<!-- ══════════════════════════════════════
+     SLIDE 01 — COVER
+══════════════════════════════════════ -->
+<section class="slide" id="s1">
+  <div class="slide-inner">
+    <p class="eyebrow">Basecamp Rewards · February 2026</p>
+    <h1 class="headline" style="max-width:620px;">Turning Around<br>Basecamp Rewards</h1>
+    <div class="rule"></div>
+    <p class="subhead" style="max-width:480px;">A data-backed plan to fix what's broken — and give the program its identity back.</p>
+    <p class="presenter">Presented to Dana &amp; Leadership Team &nbsp;·&nbsp; New Program Manager</p>
+  </div>
+  <div class="slide-num">01 / 12</div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SLIDE 02 — THE HEADLINE NUMBER
+══════════════════════════════════════ -->
+<section class="slide" id="s2">
+  <div class="slide-inner">
+    <p class="eyebrow">The Program Today</p>
+    <div class="big-num">60%</div>
+    <h2 class="headline" style="font-size:36px; margin-bottom:16px;">Monthly active users dropped 60%<br>while sign-ups grew 123%.</h2>
+    <p class="body-text" style="max-width:520px;">Members are joining and immediately going inactive. This isn't an acquisition problem — it's a retention problem. And retention problems have a root cause.</p>
+  </div>
+  <div class="slide-num">02 / 12</div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SLIDE 03 — FULL METRICS PICTURE
+══════════════════════════════════════ -->
+<section class="slide" id="s3">
+  <div class="slide-inner">
+    <p class="eyebrow">The Numbers</p>
+    <h2 class="headline" style="font-size:40px; margin-bottom:32px;">Every metric is trending<br>in the wrong direction.</h2>
+
+    <div class="card-grid card-grid-3" style="margin-bottom:16px;">
+      <div class="stat-card">
+        <div class="stat-num red">27%</div>
+        <div class="stat-label">30-Day Retention</div>
+        <div class="stat-prev">▼ Was 45%</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num red">89%</div>
+        <div class="stat-label">Stuck at Lowest Tier</div>
+        <div class="stat-prev">"Trailblazer" — no movement</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num red">$29</div>
+        <div class="stat-label">Member Lifetime Value</div>
+        <div class="stat-prev">▼ Was $47 &nbsp;(−38%)</div>
+      </div>
+    </div>
+
+    <div class="card-grid card-grid-3">
+      <div class="stat-card">
+        <div class="stat-num red">0.5</div>
+        <div class="stat-label">Program ROI</div>
+        <div class="stat-prev">▼ Was 1.8 — approaching zero</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num red">18%</div>
+        <div class="stat-label">Churn to Competitors</div>
+        <div class="stat-prev">▼ Was 12% — accelerating</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label" style="margin-bottom:10px;">NPS Gap</div>
+        <div class="nps-bar-wrap">
+          <div class="nps-bar-label"><span>Brand NPS</span><span style="font-weight:600;color:#16a34a;">67</span></div>
+          <div class="nps-bar-track"><div class="nps-bar-fill" style="width:67%;background:#16a34a;"></div></div>
+        </div>
+        <div class="nps-bar-wrap" style="margin-top:10px;">
+          <div class="nps-bar-label"><span>Rewards NPS</span><span style="font-weight:600;color:var(--red);">12</span></div>
+          <div class="nps-bar-track"><div class="nps-bar-fill" style="width:12%;background:var(--red);"></div></div>
+        </div>
+        <div class="stat-prev" style="margin-top:8px;">55-point gap — same brand, different experience</div>
+      </div>
+    </div>
+
+    <p style="font-size:11px;color:var(--subtle);margin-top:16px;">Source: Member data summary + 4 months customer feedback (178 responses)</p>
+  </div>
+  <div class="slide-num">03 / 12</div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SLIDE 04 — "FINE BUT FORGETTABLE"
+══════════════════════════════════════ -->
+<section class="slide" id="s4">
+  <div class="slide-inner">
+    <p class="eyebrow">Root Cause</p>
+
+    <div class="pull-quote-wrap">
+      <div class="pull-quote-bg">"</div>
+      <div class="pull-quote">"Fine but<br>forgettable."</div>
+      <div class="pull-attr">— Actual customer phrase. Appeared across 3 separate months of feedback.</div>
+    </div>
+
+    <div class="card-grid card-grid-4" style="margin-top:32px;">
+      <div class="theme-card">
+        <div class="theme-card-title">No Identity</div>
+        <div class="theme-card-quote">"Could be any coffee chain."</div>
+      </div>
+      <div class="theme-card">
+        <div class="theme-card-title">Points Don't Motivate</div>
+        <div class="theme-card-quote">"What's the point of points?" — verbatim</div>
+      </div>
+      <div class="theme-card">
+        <div class="theme-card-title">Tiers Are Meaningless</div>
+        <div class="theme-card-quote">Nobody can explain what tier they're in or why.</div>
+      </div>
+      <div class="theme-card">
+        <div class="theme-card-title">The App Is Invisible</div>
+        <div class="theme-card-quote">23-second avg. session. People forget it's installed.</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">04 / 12</div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SLIDE 05 — 10 CAMPAIGNS, SAME FLAW
+══════════════════════════════════════ -->
+<section class="slide" id="s5">
+  <div class="slide-inner">
+    <p class="eyebrow">10 Campaigns Analyzed</p>
+    <h2 class="headline" style="font-size:40px; margin-bottom:32px;">Every single campaign<br>had the same flaw.</h2>
+
+    <div class="card" style="margin-bottom:24px;">
+      <table class="pitch-table">
+        <thead>
+          <tr>
+            <th>Campaign</th>
+            <th>Approach</th>
+            <th>Result</th>
+            <th>Verdict</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Double Points Weekend</td><td>Bonus points</td><td>3-day spike, then flat</td><td class="verdict-no">✗ Failed</td></tr>
+          <tr><td>Happy Hour Boost</td><td>Bonus points</td><td>Users felt manipulated</td><td class="verdict-no">✗ Failed</td></tr>
+          <tr><td>Birthday Rewards</td><td>Bonus points</td><td>Only already-engaged members redeemed</td><td class="verdict-ts">Table stakes</td></tr>
+          <tr><td>Refer a Friend</td><td>Points (referral)</td><td>Never launched</td><td class="verdict-ts">—</td></tr>
+          <tr><td>Social Share Bonus</td><td>Points incentive</td><td>12 total redemptions</td><td class="verdict-no">✗ Failed</td></tr>
+          <tr><td>Streak Rewards</td><td>Visit streaks</td><td>Gamed within 2 weeks</td><td class="verdict-no">✗ Failed</td></tr>
+          <tr><td>Tier Upgrade Push</td><td>Bonus points burst</td><td>Temporary; reversed next month</td><td class="verdict-no">✗ Failed</td></tr>
+          <tr><td>Seasonal Promo (Fall)</td><td>Limited-time points</td><td>No measurable retention lift</td><td class="verdict-no">✗ Failed</td></tr>
+          <tr><td>New Drink Discovery</td><td>Points for trying new items</td><td>Closest to the right idea — underfunded</td><td class="verdict-ts">Promising signal</td></tr>
+          <tr><td>Welcome Bonus Boost</td><td>Bonus points on join</td><td>Higher sign-ups; no retention change</td><td class="verdict-no">✗ Failed</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout-dark">
+      <p><strong>The pattern: all 10 campaigns were about getting more transactions.</strong><br>Not one was designed to make members feel something.</p>
+      <p class="mid">More points ≠ more loyalty. Loyalty is identity, belonging, and feeling like you belong somewhere.</p>
+    </div>
+  </div>
+  <div class="slide-num">05 / 12</div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SLIDE 06 — COMPETITIVE GAP
+══════════════════════════════════════ -->
+<section class="slide" id="s6">
+  <div class="slide-inner">
+    <p class="eyebrow">Competitive Landscape</p>
+    <h2 class="headline" style="font-size:40px; margin-bottom:32px;">Nobody has claimed the<br>identity &amp; discovery space.</h2>
+
+    <div class="card-grid card-grid-4" style="margin-bottom:24px;">
+      <div class="card" style="text-align:center;">
+        <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:8px;">Starbucks</div>
+        <div style="font-size:12px;color:var(--mid);">Wins on<br><strong>Convenience &amp;<br>gamification</strong></div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:8px;">Dutch Bros</div>
+        <div style="font-size:12px;color:var(--mid);">Wins on<br><strong>Relationships<br>&amp; culture</strong></div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:8px;">Roast &amp; Co</div>
+        <div style="font-size:12px;color:var(--mid);">Wins on<br><strong>Expertise<br>&amp; education</strong></div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:8px;">Evergreen</div>
+        <div style="font-size:12px;color:var(--mid);">Wins on<br><strong>Values<br>alignment</strong></div>
+      </div>
+    </div>
+
+    <div class="callout-accent">
+      <p class="eyebrow" style="margin-bottom:12px;">The Gap We Can Own</p>
+      <p style="font-size:22px;font-weight:400;color:var(--ink);letter-spacing:-0.5px;line-height:1.4;">"No competitor is helping customers discover<br>what kind of coffee person they are."</p>
+      <div style="margin-top:20px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap;">
+        <span style="font-size:13px;color:var(--mid);">📣 "Help me find new drinks" — April feedback</span>
+        <span style="font-size:13px;color:var(--mid);">📣 "Make it feel like Basecamp" — recurring</span>
+        <span style="font-size:13px;color:var(--mid);">📣 "I feel like a transaction" — recurring</span>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">06 / 12</div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SLIDE 07 — THE STRATEGIC SHIFT
+══════════════════════════════════════ -->
+<section class="slide" id="s7">
+  <div class="slide-inner">
+    <p class="eyebrow">The Strategic Shift</p>
+    <h2 class="headline" style="font-size:40px; margin-bottom:32px;">The question was wrong.</h2>
+
+    <div class="from-to">
+      <div class="from-col">
+        <div class="ft-label">From</div>
+        <div class="ft-text">"How do we get<br>more transactions?"</div>
+      </div>
+      <div class="to-col">
+        <div class="ft-label">To</div>
+        <div class="ft-text">"How do we help people discover what kind of coffee person they are — and make that part of their identity?"</div>
+      </div>
+    </div>
+
+    <div class="source-list" style="margin-top:28px;">
+      <div class="source-item">Marcus (previous manager) mentioned "coffee personalities" twice in his handoff notes</div>
+      <div class="source-item">A customer in April suggested "help me find my signature drink"</div>
+      <div class="source-item">Baristas already do this naturally — "people light up when we ask about their preferences"</div>
+      <div class="source-item">Competitive research: no brand has claimed this space</div>
+    </div>
+  </div>
+  <div class="slide-num">07 / 12</div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SLIDE 08 — THE SOLUTION
+══════════════════════════════════════ -->
+<section class="slide" id="s8">
+  <div class="slide-inner">
+    <p class="eyebrow">The Solution</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+      <div>
+        <h2 class="headline" style="font-size:42px; margin-bottom:20px;">Basecamp Rewards<br>gets a personality.<br><strong>Yours.</strong></h2>
+        <p class="body-text" style="margin-bottom:24px;">The Coffee Personality Quiz helps members discover what kind of coffee person they are — and gives the program an identity to match. 6 questions. 4 personality types. Fully personalized coffee recommendation.</p>
+
+        <div class="pill-row">
+          <span class="pill">🏔️ Bold Adventurer</span>
+          <span class="pill">🛋️ Cozy Classic</span>
+          <span class="pill">📖 Zen Minimalist</span>
+          <span class="pill">🎯 Artisan Snob</span>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:8px;">
+          <div style="padding:16px;background:var(--faintest);border-radius:8px;">
+            <div style="font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">For members</div>
+            <div style="font-size:12px;color:var(--mid);">Your coffee identity, discovered.</div>
+          </div>
+          <div style="padding:16px;background:var(--faintest);border-radius:8px;">
+            <div style="font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">For baristas</div>
+            <div style="font-size:12px;color:var(--mid);">"I already know your type" — instant connection.</div>
+          </div>
+          <div style="padding:16px;background:var(--faintest);border-radius:8px;">
+            <div style="font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;">For the program</div>
+            <div style="font-size:12px;color:var(--mid);">An identity. Not just a points tracker.</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="browser-frame">
+          <div class="browser-bar">
+            <div class="browser-dot bd-red"></div>
+            <div class="browser-dot bd-yellow"></div>
+            <div class="browser-dot bd-green"></div>
+            <div class="browser-url">quiz-project-zeta-roan.vercel.app</div>
+          </div>
+          <div class="browser-body">
+            <div class="qm-eyebrow">Basecamp Rewards</div>
+            <div class="qm-headline">What's Your Coffee Personality?</div>
+            <div class="qm-body">6 questions. Discover which coffee matches your lifestyle — and what that says about you.</div>
+            <button class="qm-btn">Start Quiz</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">08 / 12</div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SLIDE 09 — LIVE DEMO
+══════════════════════════════════════ -->
+<section class="slide" id="s9">
+  <div class="slide-inner">
+    <p class="eyebrow">Live Demo</p>
+    <h2 class="headline" style="font-size:40px;">It's already built.</h2>
+    <p class="body-text" style="max-width:520px;margin-bottom:0;">The Coffee Personality Quiz is live and working today. Not a mockup — a real, deployed product.</p>
+
+    <div class="url-block">
+      <a href="https://quiz-project-zeta-roan.vercel.app" target="_blank">quiz-project-zeta-roan.vercel.app</a>
+    </div>
+
+    <div class="card-grid card-grid-3">
+      <div class="demo-card">
+        <img src="public/espresso.jpg" alt="Bold Adventurer">
+        <div class="demo-card-body">
+          <div class="demo-card-name">Bold Adventurer</div>
+          <div class="demo-card-coffee">Double Espresso</div>
+          <div class="demo-card-tag">"You live for intensity"</div>
+        </div>
+      </div>
+      <div class="demo-card">
+        <img src="public/drip-coffee.jpg" alt="Cozy Classic">
+        <div class="demo-card-body">
+          <div class="demo-card-name">Cozy Classic</div>
+          <div class="demo-card-coffee">Medium Roast Drip</div>
+          <div class="demo-card-tag">"Comfort in every cup"</div>
+        </div>
+      </div>
+      <div class="demo-card">
+        <img src="public/pour-over.jpg" alt="Artisan Snob">
+        <div class="demo-card-body">
+          <div class="demo-card-name">Artisan Snob</div>
+          <div class="demo-card-coffee">Pour-Over, Single Origin</div>
+          <div class="demo-card-tag">"You know what you like"</div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:12px;color:var(--subtle);margin-top:16px;">Built as a proof of concept. Production-ready with Vercel deployment. Tech: Next.js, TypeScript, Tailwind CSS.</p>
+  </div>
+  <div class="slide-num">09 / 12</div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SLIDE 10 — 12-WEEK ROADMAP
+══════════════════════════════════════ -->
+<section class="slide" id="s10">
+  <div class="slide-inner">
+    <p class="eyebrow">Implementation Roadmap</p>
+    <h2 class="headline" style="font-size:40px; margin-bottom:40px;">12 weeks to a program<br>with real identity.</h2>
+
+    <div class="roadmap">
+      <div class="roadmap-phase">
+        <div class="phase-bar"></div>
+        <div class="phase-label">Phase 1</div>
+        <div class="phase-title">Foundation</div>
+        <div class="phase-weeks">Weeks 1–4</div>
+        <ul class="phase-items">
+          <li>Finalize quiz questions &amp; personality profiles</li>
+          <li>Barista training on how to use personality data</li>
+          <li>Fix push notification bug (IT #4521)</li>
+          <li>Pilot in 2 stores</li>
+          <li>Lock baseline metrics with Priya (Analytics)</li>
+        </ul>
+        <div class="phase-owner"><strong>Owner:</strong> Program Manager + Store Managers</div>
+      </div>
+
+      <div class="roadmap-phase">
+        <div class="phase-bar"></div>
+        <div class="phase-label">Phase 2</div>
+        <div class="phase-title">Integration</div>
+        <div class="phase-weeks">Weeks 5–8</div>
+        <ul class="phase-items">
+          <li>Integrate quiz into Basecamp Rewards app</li>
+          <li>Launch member personality profile pages</li>
+          <li>Brief all baristas on profile data access</li>
+          <li>Full member launch</li>
+          <li>Build in social share moment</li>
+        </ul>
+        <div class="phase-owner"><strong>Owner:</strong> Product + IT + Barista Lead</div>
+      </div>
+
+      <div class="roadmap-phase">
+        <div class="phase-bar"></div>
+        <div class="phase-label">Phase 3</div>
+        <div class="phase-title">Optimization</div>
+        <div class="phase-weeks">Weeks 9–12</div>
+        <ul class="phase-items">
+          <li>Analyze retention impact vs. baseline</li>
+          <li>A/B test personality-matched offers</li>
+          <li>Launch referral mechanic ("share your type")</li>
+          <li>Report to leadership with full metrics</li>
+        </ul>
+        <div class="phase-owner"><strong>Owner:</strong> Analytics + PM (Priya)</div>
+      </div>
+    </div>
+
+    <p style="font-size:12px;color:var(--subtle);margin-top:32px;">Weekly check-ins with Dana from Week 4 onward. Go/no-go decision gate at end of Phase 1.</p>
+  </div>
+  <div class="slide-num">10 / 12</div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SLIDE 11 — SUCCESS METRICS
+══════════════════════════════════════ -->
+<section class="slide" id="s11">
+  <div class="slide-inner">
+    <p class="eyebrow">How We Measure Success</p>
+    <h2 class="headline" style="font-size:40px; margin-bottom:32px;">We know exactly what<br>winning looks like.</h2>
+
+    <div class="card-grid card-grid-3">
+      <div class="metric-card">
+        <div class="metric-name">30-Day Retention</div>
+        <div class="metric-row">
+          <span class="metric-now">Now</span>
+          <span class="metric-now-val">27%</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-target">Target</span>
+          <span class="metric-target-val">40%+</span>
+        </div>
+        <div class="metric-by">By Week 12</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name">Monthly Active Users</div>
+        <div class="metric-row">
+          <span class="metric-now">Trend</span>
+          <span class="metric-now-val">−60%</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-target">Target</span>
+          <span class="metric-target-val">+25%</span>
+        </div>
+        <div class="metric-by">Stabilize by Wk 8, grow by Wk 12</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name">Program NPS</div>
+        <div class="metric-row">
+          <span class="metric-now">Now</span>
+          <span class="metric-now-val">12</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-target">Target</span>
+          <span class="metric-target-val">35+</span>
+        </div>
+        <div class="metric-by">By Week 12</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name">Quiz Completion Rate</div>
+        <div class="metric-row">
+          <span class="metric-now">Now</span>
+          <span class="metric-now-val">—</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-target">Target</span>
+          <span class="metric-target-val">60%+</span>
+        </div>
+        <div class="metric-by">New metric · By Week 8</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name">Member Lifetime Value</div>
+        <div class="metric-row">
+          <span class="metric-now">Now</span>
+          <span class="metric-now-val">$29</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-target">Target</span>
+          <span class="metric-target-val">$40+</span>
+        </div>
+        <div class="metric-by">By Week 16</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name">Program ROI</div>
+        <div class="metric-row">
+          <span class="metric-now">Now</span>
+          <span class="metric-now-val">0.5</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-target">Target</span>
+          <span class="metric-target-val">1.5+</span>
+        </div>
+        <div class="metric-by">By Week 16</div>
+      </div>
+    </div>
+
+    <p style="font-size:12px;color:var(--subtle);margin-top:20px;">Baseline metrics to be locked with Priya (Analytics) in Week 1. Weekly reporting from Week 4.</p>
+  </div>
+  <div class="slide-num">11 / 12</div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SLIDE 12 — THE ASK
+══════════════════════════════════════ -->
+<section class="slide" id="s12">
+  <div class="slide-inner">
+    <p class="eyebrow">Decision Needed</p>
+    <h2 class="headline" style="font-size:40px; margin-bottom:12px;">We have the diagnosis,<br>the solution, and the proof.</h2>
+    <p class="body-text" style="max-width:500px;margin-bottom:36px;">The quiz is live. The plan is ready. The competitive gap is uncontested.</p>
+
+    <div class="card-grid card-grid-3" style="margin-bottom:48px;">
+      <div class="ask-card">
+        <div class="ask-card-num">1</div>
+        <div class="ask-card-title">Approve full integration</div>
+        <div class="ask-card-body">Green-light integrating the Coffee Personality Quiz into the Basecamp Rewards app.</div>
+      </div>
+      <div class="ask-card">
+        <div class="ask-card-num">2</div>
+        <div class="ask-card-title">Pilot budget — Weeks 1–4</div>
+        <div class="ask-card-body">Fund store ops, barista training, and the 2-store pilot before full rollout.</div>
+      </div>
+      <div class="ask-card">
+        <div class="ask-card-num">3</div>
+        <div class="ask-card-title">30-min check-in at Week 4</div>
+        <div class="ask-card-body">Review pilot data with Dana before committing to full member launch.</div>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="closing-lines">
+      <div class="closing-big">Basecamp's brand NPS is 67.<br>The program's is 12.<br>We know how to close that gap.</div>
+      <div class="thank-you">Thank you.</div>
+      <div class="presenter-line">New Program Manager &nbsp;·&nbsp; Basecamp Rewards &nbsp;·&nbsp; February 2026</div>
+    </div>
+  </div>
+  <div class="slide-num">12 / 12</div>
+</section>
+
+<script>
+  // Active dot tracking
+  const dots = document.querySelectorAll('.nav-dot');
+  const slides = document.querySelectorAll('.slide');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        const index = Array.from(slides).findIndex(s => s.id === id);
+        dots.forEach((d, i) => d.classList.toggle('active', i === index));
+      }
+    });
+  }, { threshold: 0.5 });
+
+  slides.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
