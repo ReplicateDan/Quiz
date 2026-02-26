@@ -1,6 +1,8 @@
 node_modules/
 *
 !.gitignore
+!.claude/
+!.claude/settings.json
 !adora.js
 !index.html
 !package.json
